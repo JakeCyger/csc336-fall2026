@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>9-15-26 CSS Demos</title>
+        <style>
+            div {
+                background-color: antiquewhite;
+            }
+            li {
+                font-family: "Arial Black", Gadget, sans-serif;
+            }
+            h1 {
+                font-size: 40;
+                font-family: "Arial Black", Gadget, sans-serif;
+            }
+            #flexDiv {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 200px;
+            }
+
+            .flexDemo {
+                background-color: blueviolet;
+                padding: 10px;
+                width: 33.3%;
+                height: 100px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+            }
+            
+            .flexDemo:hover {
+                background-color: darkorchid;
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.9);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="headerDiv">
+            <h1 id="title">Penguins</h1>
+        </div>
+        <div id="contentDiv">
+            <ul id="penguinNames">
+                <li>Mike</li>
+                <li>Lisa</li>
+                <li>Jeff</li>
+                <li>Phil</li>
+            </ul>
+        </div>
+        <div id="flexDiv">
+            <div class="flexDemo"></div>
+            <div class="flexDemo"></div>
+            <div class="flexDemo"></div>
+        </div>
+    </body>
+</html>
