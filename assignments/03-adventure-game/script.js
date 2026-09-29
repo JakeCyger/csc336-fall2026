@@ -1,3 +1,12 @@
+let hasTalkedToCaterpillar = false;
+let caterpillarTalkIndex = 0;
+
+let caterpillarDialogue = [
+    "The Caterpillar exhales a cloud of purple smoke. 'Who... are... YOU?'",
+    "You explain your situation. He blinks slowly. 'You're not lost... you are in Wonderland!.. Which explains what cannot be explained.'",
+    "He crawls away, leaving behind a secret path through the roots to the Tea Party!"
+]
+
 let rooms = {
 
                 "The Hall of Locked Doors" : {
@@ -27,10 +36,9 @@ let rooms = {
                 "The Caterpillar's Mushroom Forest": {
 
                     name: "The Caterpillar's Mushroom Forest",
-                    desc: "A damp towering forest filled with bioluminescent, oversized mushrooms taller than trees! Thick, sweet-smelling purple smoke drifts through the air, obscuring the path, while enormous glowing spores drift gently down from the canopy.",
+                    desc: "A damp towering forest filled with bioluminescent, oversized mushrooms taller than trees! Thick, sweet-smelling purple smoke drifts through the air. A large Blue Caterpillar rests quietly atop a giant mushroom, smoking a hookah. (He must be talked to in order to progress to the tea party!)",
                     linkedRooms: [
                         { label: "Head back toward the pool", destination: "The Sunken Tear Pool" },
-                        { label: "Follow the sound of clinking teacups", destination: "The Mad Tea Party Garden" },
                         { label: "Walk toward a gleaming hallway", destination: "The Glass Mirror Maze" }
                     ],
                     traversalMSG: "You feel a compulsion to walk further into the forest..."
@@ -67,7 +75,7 @@ let rooms = {
                     name: "The Queen's Rose Courtyard",
                     desc: "A stark, geometrically rigid courtyard with a checkerboard marble floor. Massive white rose bushes line the stone walls, many dripping with fresh red paint. Armored playing-card soldiers stand guard along the perimeter balconies.",
                     linkedRooms: [
-                        { label: "Slip back out to the Tea Party", destination: "The Mad Tea Party Garden" },
+                        // { label: "Slip back out to the Tea Party", destination: "The Mad Tea Party Garden" },
                         { label: "Run back into the mirror gallery", destination: "The Glass Mirror Maze" }
                     ],
                     traversalMSG: "You avoid the guards on the way in but it might not be so easy on the way out..."
@@ -89,6 +97,18 @@ function msgClick(e) {
     visualizeRoom();
 }
 
+function npcTalkClick(e) {
+    if (caterpillarTalkIndex < caterpillarDialogue.length) {
+        let currentLine = caterpillarDialogue[caterpillarTalkIndex];
+        caterpillarTalkIndex = caterpillarTalkIndex + 1;
+        if (caterpillarTalkIndex === caterpillarDialogue.length) {
+            hasTalkedToCaterpillar = true
+        }
+
+        visualizeMsg(currentLine)
+    }
+}
+
 function visualizeRoom() {
 
     rootDiv.innerHTML = "";
@@ -100,6 +120,17 @@ function visualizeRoom() {
     let roomDesc = document.createElement("p");
     roomDesc.innerHTML = currentRoom.desc;
     rootDiv.append(roomDesc);
+
+    if (currentRoom.name === "The Caterpillar's Mushroom Forest") {
+        let npcButton = document.createElement("button");
+        if (hasTalkedToCaterpillar) {
+            npcButton.innerHTML = "Speak to the Caterpillar again";
+        } else {
+            npcButton.innerHTML = "Talk to the Blue Caterpillar";
+        }
+        npcButton.addEventListener("click", npcTalkClick);
+        rootDiv.append(npcButton);
+    }
     
     for (let i = 0; i < currentRoom.linkedRooms.length; i++) {
         let exit = currentRoom.linkedRooms[i]
@@ -109,6 +140,14 @@ function visualizeRoom() {
         navButton.destination = exit.destination
         navButton.addEventListener("click", navigationClick);
         rootDiv.append(navButton);
+    }
+
+    if (currentRoom.name === "The Caterpillar's Mushroom Forest" && hasTalkedToCaterpillar) {
+        let secretButton = document.createElement("button");
+        secretButton.innerHTML = "Follow the sound of clinking teacups";
+        secretButton.destination = "The Mad Tea Party Garden";
+        secretButton.addEventListener("click", navigationClick);
+        rootDiv.append(secretButton);
     }
 
 };
