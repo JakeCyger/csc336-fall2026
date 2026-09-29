@@ -24,7 +24,7 @@ let rooms = {
                 "The Sunken Tear Pool": {
 
                     name: "The Sunken Tear Pool",
-                    desc: "A large chamber completely filled waist deep with a salty, shimmering blue water. Giant hankerchiefs served as lily pads, and a massive, oversized glass bottle drifted nearby, large enough to step inside.",
+                    desc: "A large chamber completely filled waist deep with a salty, shimmering blue water. Giant hankerchiefs served as lily pads, and a massive, oversized glass bottle drifted nearby, large enough to step inside and releasing a purple smoke.",
                     linkedRooms: [
                         { label: "Return to the corridor", destination: "The Hall of Locked Doors" },
                         { label: "Follow the purple smoke", destination: "The Caterpillar's Mushroom Forest" }
