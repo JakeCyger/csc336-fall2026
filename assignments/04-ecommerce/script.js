@@ -113,7 +113,7 @@ let addSelectedButton = document.querySelector("#addSelected");
 
 // update the add selected button text and disabled status based on checked boxes
 function updateAddSelectedButton() {
-    let allCards = [...document.querySelectorAll(".crawlerCard")];
+    let allCards = [...document.querySelectorAll(".crawlerCard")]; // spread node list into an array so we can use filter
     let selectedCards = allCards.filter(card => card.classList.contains("selected"));
 
     if (selectedCards.length === 0) {
@@ -121,7 +121,7 @@ function updateAddSelectedButton() {
         addSelectedButton.textContent = "Add Selected to Cart";
     } else {
         addSelectedButton.disabled = false;
-        addSelectedButton.textContent = `Add ${selectedCards.length} Item${selectedCards.length > 1 ? "s" : ""} to Cart`;
+        addSelectedButton.textContent = `Add ${selectedCards.length} Item${selectedCards.length > 1 ? "s" : ""} to Cart`; // use ticks to escape the $ sign and use logic to add 's'
     }
 }
 
@@ -173,7 +173,7 @@ function updateCartTotal() {
     let totalItems = 0;
     quantities.forEach(qty => totalItems += qty);
 
-    document.querySelector("#cartTotal").textContent = `Total: $${totalCost.toFixed(2)} (${totalItems} items)`;
+    document.querySelector("#cartTotal").textContent = `Total: $${totalCost} (${totalItems} item${totalItems !== 1 ? "s" : ""})`;
 }
 
 function addToCart(crawlerName, price, quantity) {
