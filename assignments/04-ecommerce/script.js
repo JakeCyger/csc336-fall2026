@@ -4,7 +4,7 @@ let spaceCrawlers = [ // All my spacecrawler objects!
         name: "Crawler 18E-47",
         title: "The Edison",
         description: "A small, fast crawler with a sleek and powerful design. Perfect for quick reconnaissance missions and light cargo transport.",
-        price: 15000,
+        price: 150000,
         category: "Cruiser",
         image: "https://blocks.astratic.com/img/general-img-landscape.png"
     },
@@ -13,7 +13,7 @@ let spaceCrawlers = [ // All my spacecrawler objects!
         name: "Crawler 16N-43",
         title: "The Newton",
         description: "A versatile and durable crawler with a robust design. Ideal for heavy-duty operations and extended missions.",
-        price: 25000,
+        price: 250000,
         category: "Cruiser",
         image: "https://blocks.astratic.com/img/general-img-landscape.png"
     },
@@ -22,7 +22,7 @@ let spaceCrawlers = [ // All my spacecrawler objects!
         name: "Crawler 2A-87",
         title: "The Archimedes",
         description: "A powerful and efficient crawler with a state-of-the-art control system. Perfect for complex missions and high-stakes operations.",
-        price: 35000,
+        price: 350000,
         category: "Cruiser",
         image: "https://blocks.astratic.com/img/general-img-landscape.png"
     },
@@ -31,7 +31,7 @@ let spaceCrawlers = [ // All my spacecrawler objects!
         name: "Crawler 18B-47",
         title: "The Bell",
         description: "A large, heavy-duty crawler with a wide and rugged design. Built for extreme conditions and heavy cargo transport.",
-        price: 50000,
+        price: 500000,
         category: "Behemoth",
         image: "https://blocks.astratic.com/img/general-img-landscape.png"
     },
@@ -40,7 +40,7 @@ let spaceCrawlers = [ // All my spacecrawler objects!
         name: "Crawler 18C-67",
         title: "The Curie",
         description: "A compact and agile crawler with a sleek and aerodynamic design. Perfect for high-speed missions and rapid response operations.",
-        price: 40000,
+        price: 400000,
         category: "Wasp",
         image: "https://blocks.astratic.com/img/general-img-landscape.png"
     },
@@ -49,7 +49,7 @@ let spaceCrawlers = [ // All my spacecrawler objects!
         name: "Crawler 19T-12",
         title: "The Turing",
         description: "A large, highly advanced crawler with cutting-edge technology and a futuristic design. Ideal for research missions and exploration of uncharted territories as a mobile home base.",
-        price: 100000,
+        price: 1000000,
         category: "Behemoth",
         image: "https://blocks.astratic.com/img/general-img-landscape.png"
     },
@@ -58,7 +58,7 @@ let spaceCrawlers = [ // All my spacecrawler objects!
         name: "Crawler 18T-56",
         title: "The Tesla",
         description: "An experimental high-voltage crawler equipped with specialized energy shielding and precision telemetry systems.",
-        price: 45000,
+        price: 450000,
         category: "Wasp",
         image: "https://blocks.astratic.com/img/general-img-landscape.png"
     },
@@ -67,7 +67,7 @@ let spaceCrawlers = [ // All my spacecrawler objects!
         name: "Crawler 15G-64",
         title: "The Galileo",
         description: "A deep-range surveillance crawler built for high-altitude surveying, orbital tracking, and long-range planetary scans.",
-        price: 30000,
+        price: 300000,
         category: "Cruiser",
         image: "https://blocks.astratic.com/img/general-img-landscape.png"
     },
@@ -76,7 +76,7 @@ let spaceCrawlers = [ // All my spacecrawler objects!
         name: "Crawler 19F-88",
         title: "The Feynman",
         description: "A compact, highly adaptable utility crawler designed to operate reliably in erratic gravitational fields and extreme weather.",
-        price: 28000,
+        price: 280000,
         category: "Wasp",
         image: "https://blocks.astratic.com/img/general-img-landscape.png"
     },
@@ -85,7 +85,7 @@ let spaceCrawlers = [ // All my spacecrawler objects!
         name: "Crawler 18M-79",
         title: "The Maxwell",
         description: "A heavily fortified transport unit engineered with electromagnetic reinforcement to endure dense asteroid belts and debris fields.",
-        price: 75000,
+        price: 750000,
         category: "Behemoth",
         image: "https://blocks.astratic.com/img/general-img-landscape.png"
     }
@@ -121,7 +121,7 @@ function updateAddSelectedButton() {
         addSelectedButton.textContent = "Add Selected to Cart";
     } else {
         addSelectedButton.disabled = false;
-        addSelectedButton.textContent = `Add ${selectedCards.length} Item${selectedCards.length > 1 ? "s" : ""} to Cart`; // use ticks to escape the $ sign and use logic to add 's'
+        addSelectedButton.textContent = `Add ${selectedCards.length} Item${selectedCards.length > 1 ? "s" : ""} to Cart`; // use ticks to escape the $ sign and use ternary to add 's'
     }
 }
 
