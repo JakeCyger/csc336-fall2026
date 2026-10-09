@@ -162,7 +162,7 @@ sortBySelect.addEventListener("change", applyFilterAndSort);
 function updateCartTotal() {
     let cartEntries = document.querySelectorAll(".cart-entry");
     
-    // need to spread node list into an array to use map, pulls price and quantity out of dataset
+    // need to spread list of entries into an array to use map, pulls price and quantity out of dataset
     // dataset is a way to store my attributes for later use
     let lineTotals = [...cartEntries].map(entry => Number(entry.dataset.lineTotal));
     let quantities = [...cartEntries].map(entry => Number(entry.dataset.quantity));
@@ -190,7 +190,7 @@ function addToCart(crawlerName, price, quantity) {
 }
 
 addSelectedButton.addEventListener("click", () => {
-    let allCards = [...document.querySelectorAll(".crawlerCard")]; // spread node list into an array so we can use filter
+    let allCards = [...document.querySelectorAll(".crawlerCard")]; // spread list of cards into an array so we can use filter
     let selectedCards = allCards.filter(card => card.classList.contains("selected"));
 
     selectedCards.forEach(crawlerDiv => {
