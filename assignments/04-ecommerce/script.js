@@ -181,7 +181,7 @@ function addToCart(crawlerName, price, quantity) {
     
     let cartEntry = document.createElement("div");
     cartEntry.classList.add("cart-entry");
-    cartEntry.textContent = `${crawlerName} $${price} x ${quantity}`;
+    cartEntry.textContent = `${crawlerName} | $${price} x ${quantity}`;
     cartEntry.dataset.lineTotal = Number(price) * Number(quantity);
     cartEntry.dataset.quantity = Number(quantity);
     
