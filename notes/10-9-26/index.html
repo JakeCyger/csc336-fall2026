@@ -1,0 +1,65 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form id="userDataForm">
+            <input id="nameField" type="text" placeholder="Input name...">
+            <input type="submit" value="Add name">
+        </form>
+
+        <div id="currentUsers">
+
+        </div>
+
+        <script>
+            let userData = [];
+
+            let form = document.querySelector("#userDataForm")
+            let nameField = document.querySelector("#nameField")
+            let currentUsers = document.querySelector("#currentUsers")
+
+            let localStorageKey = "users";
+
+            document.addEventListener("DOMContentLoaded", () => {
+
+                let localStorageData = localStorage.getItem(localStorageKey);
+
+                if (localStorageData != null) {
+                    userData = JSON.parse(localStorageData);
+                }
+                updateUserList(userData);
+
+            });
+
+            form.addEventListener("submit", (event) => {
+                event.preventDefault(); 
+                console.log("hi")
+
+                userData.push(nameField.value);
+                nameField.value = "";
+                
+                updateUserList(userData);
+            });
+
+            function updateUserList(data) {
+
+                currentUsers.innerHTML = "";
+
+                let list = document.createElement("ul")
+
+                data.forEach((user) => {
+                    let point = document.createElement("li");
+                    point.innerHTML = user
+                    list.append(point)
+                })
+
+                currentUsers.append(list);
+
+                let jsonStringVersionOfData = JSON.stringify(data);
+                localStorage.setItem(localStorageKey, jsonStringVersionOfData);
+
+            };
+        </script>
+    </body>
+</html>

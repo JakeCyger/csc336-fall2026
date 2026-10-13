@@ -126,6 +126,7 @@ function updateAddSelectedButton() {
 }
 
 function applyFilterAndSort() {
+    
     let selectedCategory = filterSelect.value;
     let selectedSort = sortBySelect.value;
 
