@@ -319,13 +319,21 @@ newItemField.addEventListener("submit", (event) => {
 });
 
 let resetShopButton = document.querySelector("#resetShopButton");
+let fillDummyData = document.querySelector("#fillDummyData");
 
 resetShopButton.addEventListener("click", () => {
     spaceCrawlers = [...starterCrawlers];
-
     saveCrawlers();
-
     applyFilterAndSort();
+});
+
+fillDummyData.addEventListener("click", () => {
+    nameField.value = "Crawler 18P-58";
+    titleField.value = "The Planck";
+    priceField.value = 62000;
+    descField.value = "A precision exploration unit equipped with quantum telemetry sensors designed for surveying unstable planetary cores.";
+    categoryField.value = "Cruiser";
+    urlField.value = "https://blocks.astratic.com/img/general-img-landscape.png";
 });
 
 renderCards();

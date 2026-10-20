@@ -15,16 +15,17 @@
                 <option value="name-asc">Name: A to Z</option>
             </select>
             <button id="resetShopButton" type="button">Reset Inventory</button>
+            <button id="fillDummyData" type="button">(Fill with data)</button>
             <div id="inventoryFormDiv">
                 <form id="inventoryForm">
-                    <input placeholder="Name" id="nameField" value="Crawler 18P-58" required>
-                    <input placeholder="Title" id="titleField" value="The Planck" required>
-                    <input type="number" step="0.1" placeholder="Price" id="priceField" value="62000" required>
-                    <textarea placeholder="Description" id="descField" required>A precision exploration unit equipped with quantum telemetry sensors designed for surveying unstable planetary cores.</textarea>
+                    <input placeholder="Name" id="nameField" required>
+                    <input placeholder="Title" id="titleField" required>
+                    <input type="number" step="0.1" placeholder="Price" id="priceField" required>
+                    <textarea placeholder="Description" id="descField" required></textarea>
                     <select id="categorySelect" required>
                         <option value="" disabled selected>Category</option>
                     </select>
-                    <input type="url" value="https://blocks.astratic.com/img/general-img-landscape.png" id="urlField" required>
+                    <input type="url" id="urlField" required>
                     <input type="submit" value="Create Item">
                 </form>
             </div>
