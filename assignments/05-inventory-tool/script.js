@@ -1,4 +1,4 @@
-let spaceCrawlers = [ // All my spacecrawler objects!
+let starterCrawlers = [ // All my spacecrawler objects!
 
     {
         name: "Crawler 18E-47",
@@ -92,8 +92,13 @@ let spaceCrawlers = [ // All my spacecrawler objects!
 
 ];
 
+let savedCrawlers = localStorage.getItem("spaceCrawlers");
+
+let spaceCrawlers = savedCrawlers ? JSON.parse(savedCrawlers) : starterCrawlers;
+
 let categories = ["Cruiser", "Wasp", "Behemoth"];
 let filterSelect = document.querySelector("#filterBy");
+let categorySelect = document.querySelector("#categorySelect");
 let option = document.createElement("option");
 option.value = "All";
 option.textContent = "All";
@@ -107,9 +112,20 @@ categories.forEach(category => {
     filterSelect.appendChild(option);
 });
 
+categories.forEach(category => {
+    let option = document.createElement("option");
+    option.value = category;
+    option.textContent = category;
+    categorySelect.appendChild(option);
+});
+
 let sortBySelect = document.querySelector("#sortBy");
 let root = document.querySelector("#root");
 let addSelectedButton = document.querySelector("#addSelected");
+
+function saveCrawlers() {
+    localStorage.setItem("spaceCrawlers", JSON.stringify(spaceCrawlers));
+}
 
 // update the add selected button text and disabled status based on checked boxes
 function updateAddSelectedButton() {
@@ -267,5 +283,49 @@ function renderCards(crawlersToDisplay = spaceCrawlers) {
     crawlersToDisplay.forEach(crawler => renderCard(crawler));
     updateAddSelectedButton();
 }
+
+let newItemField = document.querySelector("#inventoryForm");
+let nameField = newItemField.querySelector("#nameField");
+let titleField = newItemField.querySelector("#titleField");
+let priceField = newItemField.querySelector("#priceField");
+let descField = newItemField.querySelector("#descField");
+let categoryField = newItemField.querySelector("#categorySelect");
+let urlField = newItemField.querySelector("#urlField");
+
+
+newItemField.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (Number(priceField.value) < 10000) {
+        alert('Price cannot be less than $10,000.');
+        return;
+    }
+
+    let newItem = {
+        name: nameField.value,
+        title: titleField.value,
+        price: Number(priceField.value),
+        description: descField.value,
+        category: categorySelect.value,
+        image: urlField.value
+    };
+
+    spaceCrawlers.push(newItem);
+
+    saveCrawlers();
+
+    applyFilterAndSort();
+    newItemField.reset();
+});
+
+let resetShopButton = document.querySelector("#resetShopButton");
+
+resetShopButton.addEventListener("click", () => {
+    spaceCrawlers = [...starterCrawlers];
+
+    saveCrawlers();
+
+    applyFilterAndSort();
+});
 
 renderCards();

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Spacecrawler Emporium</title>
+        <title>SE - Inventory Tool</title>
         <script src="script.js" defer></script>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -14,6 +14,20 @@
                 <option value="price-desc">Price: High to Low</option>
                 <option value="name-asc">Name: A to Z</option>
             </select>
+            <button id="resetShopButton" type="button">Reset Inventory</button>
+            <div id="inventoryFormDiv">
+                <form id="inventoryForm">
+                    <input placeholder="Name" id="nameField" value="Crawler 18P-58" required>
+                    <input placeholder="Title" id="titleField" value="The Planck" required>
+                    <input type="number" step="0.1" placeholder="Price" id="priceField" value="62000" required>
+                    <textarea placeholder="Description" id="descField" required>A precision exploration unit equipped with quantum telemetry sensors designed for surveying unstable planetary cores.</textarea>
+                    <select id="categorySelect" required>
+                        <option value="" disabled selected>Category</option>
+                    </select>
+                    <input type="url" value="https://blocks.astratic.com/img/general-img-landscape.png" id="urlField" required>
+                    <input type="submit" value="Create Item">
+                </form>
+            </div>
         </div>
 
         <div id="root"></div>

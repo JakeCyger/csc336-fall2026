@@ -11,8 +11,12 @@ body {
 }
 
 #filterBy {
-    margin-bottom: 20px;
-    padding: 6px 10px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+#sortBy {
+    padding: 10px;
     font-size: 14px;
 }
 
@@ -128,4 +132,15 @@ body {
 #addSelected:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+#inventoryFormDiv {
+    width: 62.15%;
+    height: 100px;
+    background-color: #ffffff;
+    border: 1px solid #4c4b4b;
+    border-radius: 2px;
+    padding: 16px;
+    display: flex;
+    margin-left: 5px;
 }
