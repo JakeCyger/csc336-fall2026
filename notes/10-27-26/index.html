@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <style>
+
+            #pokemonArena {
+                display: flex;
+                gap: 10px;
+            };
+            
+        </style>
+    </head>
+    <body>
+        <div id="pokemonArena">
+
+        </div>
+        <script>
+            
+            async function getPokemon(id) {
+
+                let response = await fetch("https://pokeapi.co/api/v2/pokemon/" + id);
+                let json = await response.json();
+                return json;
+
+            }
+
+            async function createSprite(id) {
+
+                let pokemon = await getPokemon(id)
+
+                console.log(pokemon);
+
+                let imageURL = pokemon.sprites.front_default;
+                let image = document.createElement("img");
+                image.src = imageURL;
+                image.style.height = "100%";
+                image.style.width = "100%";
+
+                let spriteCircle = document.createElement("div");
+                spriteCircle.style.width = 96;
+                spriteCircle.style.height = 96;
+                spriteCircle.style.borderRadius = "50px";
+                spriteCircle.style.boxShadow = "1px 1px 3px rgba(0, 0, 0, 0.5)";
+                spriteCircle.style.backgroundColor = "rgb(238,21,21)";
+
+                document.body.querySelector("#pokemonArena").append(spriteCircle);
+                spriteCircle.append(image);
+
+            };
+
+            function getRandomNum(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            };
+
+            for (let i = 0; i < 16; i++) {
+                createSprite(getRandomNum(1, 1000));
+            };
+
+            console.log("This runs immeditately after fetch()");
+
+        </script>
+    </body>
+</html>
