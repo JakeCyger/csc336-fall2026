@@ -1,0 +1,16 @@
+{
+  "name": "11-13-26",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Jake Cyger",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}

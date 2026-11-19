@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>JavaScript</title>
+        <style>
+            .pokemonData {
+                display: flex;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script>
+            // Pokemon data
+            let allPokemon = [];
+
+            let pokemon = {};
+            pokemon.name = "Pikachu";
+            pokemon.description = "It has small electric sacs on both its cheeks. When in a tough spot, this Pokémon discharges electricity.";
+            pokemon.img = "https://img.pokemondb.net/sprites/black-white/normal/pikachu-f.png";
+
+            allPokemon.push(pokemon);
+
+            allPokemon.push({
+                name: "Hoopa",
+                description: "In its true form, it possesses a huge amount of power. Legends of its avarice tell how it once carried off an entire castle to gain the treasure hidden within.",
+                img: "https://img.pokemondb.net/sprites/x-y/normal/hoopa-confined.png",
+            });
+
+            function addPokemonToRoot(pokemon) {
+                let root = document.querySelector("#root");
+                let pokemonDiv = document.createElement("div");
+                pokemonDiv.classList.add("pokemonData");
+                let infoDiv = document.createElement("div");
+
+                let nameHeading = document.createElement("h1");
+                nameHeading.innerText = pokemon.name;
+                infoDiv.appendChild(nameHeading);
+
+                let descriptionParagraph = document.createElement("p");
+                descriptionParagraph.innerText = pokemon.description;
+                infoDiv.appendChild(descriptionParagraph);
+
+                let imgElement = document.createElement("img");
+                imgElement.src = pokemon.img;
+
+                pokemonDiv.appendChild(infoDiv);
+                pokemonDiv.appendChild(imgElement);
+                root.appendChild(pokemonDiv);
+            }
+
+            addPokemonToRoot(allPokemon[1]);
+            addPokemonToRoot(allPokemon[0]);
+
+        </script>
+    </body>
+</html>

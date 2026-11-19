@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>9-25-26</title>
+
+</head>
+
+<body>
+
+    <div id="buttonDataDiv">
+
+    </div>
+    <div id="buttonsDiv">
+
+    </div>
+
+    <input id="inputElement">
+
+    <script>
+
+        let rooms = {
+            entry: {
+                name: "Theranos",
+                worth: "9 Billion",
+            }
+        }
+
+        let buttonData = ["One", "Two", "Three", "Four"];
+        let buttonDataDiv = document.querySelector("#buttonDataDiv");
+        let buttonsDiv = document.querySelector("#buttonsDiv");
+        let inputElement = document.querySelector("#inputElement");
+
+        function buttonClick(e) {
+            console.log(e);
+            buttonDataDiv.innerHTML = e.target.innerHTML;
+
+            if (inputElement.value === "PASSWORD") {
+                console.log("Correct!")
+            } else {
+                console.log("Incorrect.")
+            }
+            
+        }
+
+        for (let i = 0; i < buttonData.length; i++) {
+            let buttonObj = document.createElement("button");
+            buttonObj.innerText = buttonData[i];
+            buttonObj.addEventListener("click", buttonClick);
+            buttonsDiv.append(buttonObj);
+        }
+
+    </script>
+</body>
+
+</html>

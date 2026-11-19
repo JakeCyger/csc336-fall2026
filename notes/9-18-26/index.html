@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>JavaScript</title>
+    <style>
+        #demoDiv {
+            background-color: thistle;
+        }
+
+        .randomList {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demoDiv">
+        Inside Div
+    </div>
+
+    <script>
+        console.log("Hello World... from inside index.html");
+        let foo = 11.4;
+        let bar = 10;
+        let sum = foo + bar; // variable
+        console.log(sum);
+
+        if (sum > 20 /* boolean expression */) {
+            console.log(sum + " is greater than 20");
+        } else {
+            console.log(sum + " is less than or equal to 20");
+        } // conditional statement
+
+        let i = 0;
+        while(i < 10) {
+            console.log("hello");
+            i++;
+        } // iteration statement
+
+        for (let i = 0; i < 10; i++) {
+            console.log("hello from for loop");
+        } // also an iteration statement but simplified to a different syntax
+        
+        function add3(a, b, c) {
+            let sumOfParams = a + b + c;
+            return sumOfParams;
+        }
+
+        console.log(add3(1, 4, 6));
+
+        let obj = {}
+        obj.x = 10;
+        obj.log = function(a) {
+            console.log(a);
+        }
+
+        obj.log("Hello")
+
+        let demoDiv = document.querySelector("#demoDiv");
+        
+        for (let i = 0; i < 100; i++) {
+            let rand = Math.random();
+            let newDiv = document.createElement("div");
+            newDiv.classList.add("randomList");
+            demoDiv.appendChild(newDiv);
+            newDiv.innerHTML = Math.trunc((rand * 100)) + " | " + (i + 1);
+        }
+
+    </script>
+</body>
+
+</html>
