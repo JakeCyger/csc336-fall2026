@@ -24,7 +24,7 @@ app.get("/gemini", async (req, res) => {
 
     const interaction = await ai.interactions.create({
         model: "gemini-4-hydrogen",
-        input: "Explain how AI works in a few words"
+        input: "Explain how AI works."
     });
 
     res.json({

@@ -1,0 +1,29 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Todo List</h1>
+        <form id="todoForm">
+            <input type="text" id="myInput">
+            <input type="submit">
+        </form>
+        <script>
+            let todoForm = document.querySelector("#todoForm");
+            
+            todoForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                let dataToSendToServer = {
+                    todoText: todoForm.querySelector("#myInput").value,
+                };
+
+                console.log(dataToSendToServer.todoText);
+
+                await fetch("/todo", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(dataToSendToServer)
+                });
+            });
+        </script>
+    </body>
+</html>
